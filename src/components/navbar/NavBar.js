@@ -2,6 +2,7 @@ import React, {useContext, useState} from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import {AuthContext} from "../../context/AuthContext";
 import SearchBar from "../searchbar/SearchBar";
+
 function NavBar() {
     const navigate = useNavigate();
     const {isAuth, login, logout,email} = useContext( AuthContext )
@@ -11,15 +12,16 @@ function NavBar() {
     //console.log("Logout status:" +logout);
     //console.log("Login status:" +login);
     return (
+
         <nav>
             <Link to="/">
           <span className="logo-container">
-
             <h1>
               Web Shop
             </h1>
           </span>
             </Link>
+            {/*<SearchBar />*/}
             {/*<SearchBar setProductHandler={setProduct}/>*/}
             {(isAuth===true) ?
 
@@ -45,9 +47,21 @@ function NavBar() {
                     </button>
                     <button
                         type="button"
+                        onClick={() => navigate('/profile')}
+                    >
+                        Profile
+                    </button>
+                    <button
+                        type="button"
                         onClick={() => navigate('/products')}
                     >
                         Products
+                    </button>
+                    <button
+                        type="button"
+                        onClick={() => navigate('/searchresults')}
+                    >
+                        Product Search by Category
                     </button>
 
                     {/*Shopping Cart<img src="../assets/shopping-cart.png"/>*/}

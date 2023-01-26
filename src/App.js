@@ -6,8 +6,14 @@ import Home from './pages/Home';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import './App.css';
+import './index.css';
 import {AuthContext} from "./context/AuthContext";
 import Footer from "./components/footer/Footer";
+import SearchResults from "./pages/SearchResults";
+import ProductDetails from "./pages/ProductDetails";
+import Profile from "./pages/Profile";
+
+
 
 
 function App() {
@@ -26,6 +32,9 @@ function App() {
             <Route exact path="/signin" element={<SignIn/>}/>
             <Route exact path="/signup" element={<SignUp/>}/>
             <Route exact path="/products" element={<Products/>}/>
+              <Route exact path="/searchresults" element={<SearchResults/>}/>
+              <Route  path="/productdetails/:id" element={<ProductDetails/>}/>
+              <Route path="/profile" element={ isAuth ? <Profile /> : <Navigate to="/" />}/>
           </Routes>
         </div>
         <div>

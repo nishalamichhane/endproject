@@ -137,8 +137,8 @@ section  {
   border-radius: 4px;
   flex-basis: 280px;
   margin: 7px;
-  height: 250px;
-  padding: 30px;
+  height: 200px;
+  padding: 20px;
   flex-shrink: 1;
   flex-grow: 0;
 }
@@ -150,4 +150,34 @@ section  {
 }
 .article-container p{
   font-family: Roboto Condensed;
+}
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 30%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  /*display: inline-block;*/
+  border: none;
+  background: #f1f1f1;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #f5ab00;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  /*width: 100%;*/
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
 }

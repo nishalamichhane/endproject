@@ -1,53 +1,71 @@
 import React, {useContext, useState} from 'react';
 import { Link } from 'react-router-dom';
 import {AuthContext} from "../context/AuthContext";
+import axios from 'axios';
+import "../App.css";
 function SignIn() {
-    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-
+    const [error, toggleError] = useState(false);
     const { login } = useContext(AuthContext);
 
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
+        toggleError(false);
+        try {
+            const result = await axios.post(`https://frontend-educational-backend.herokuapp.com/api/auth/signin`, {
+                username: username,
+                password: password,
+            });
+            // log the result in the console
+            console.log(result.data);
 
-        console.log({
-            email: email,
-            wachtwoord: password,
-        });
-        login();
+            // pass the JWT token to the login function of the context
+            login(result.data.accessToken);
+
+        } catch(e) {
+            console.error(e);
+            toggleError(true);
+        }
     }
+
+        // console.log({
+        //     email: email,
+        //     wachtwoord: password,
+        // });
+        // login();
+
     return (
         <>
             <h1>Inloggen</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias cum debitis dolor dolore fuga id molestias qui quo unde?</p>
+            <p>Dit is Login Pagina</p>
 
             <form onSubmit={handleSubmit}>
                 <label htmlFor="email-field">
-                    Emailadres:
+                    Username:</label><br/>
                     <input
-                        type="email"
+                        type="text"
                         id="email-field"
-                        name="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                </label>
+                        name="username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    /> <br/>
 
                 <label htmlFor="password-field">
-                    Wachtwoord:
+                    Wachtwoord: </label><br />
                     <input
                         type="password"
                         id="password-field"
                         name="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                    />
-                </label>
+                    /><br/>
+
 
                 <button
                     type="submit"
-                    className="form-button"
+                    className="registerbtn"
                 >
                     Inloggen
                 </button>

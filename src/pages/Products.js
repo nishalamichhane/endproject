@@ -16,9 +16,9 @@ const Home = () => {
     const [error, setError] = useState(false);
     const [counter, setCounter] = useState(0);
 
-    function adjustCounter(num){
-        setCounter(counter=>counter+num);
-    }
+    // function adjustCounter(num){
+    //     setCounter(counter=>counter+num);
+    // }
 
 
     useEffect(()=>{
@@ -51,10 +51,10 @@ const Home = () => {
                 {product.map((product)=>{
                     return(<article className="article-container" key={product.id}>
                         <h4> Category: {product.category}</h4>
-                        <h6>Title:<Link to={`/products/${product.id}`}>{product.title}</Link></h6>
+                        <h6>Title:<Link to={`/productdetails/${product.id}`}>{product.title}</Link></h6>
                         <strong>Price: €{product.price}</strong><br/>
-                        <p>{counter}</p>
-                        <Button clickHandler = { () => adjustCounter(+1) }> Add to a cart </Button>
+                        {/*<p>{counter}</p>*/}
+                        {/*<Button clickHandler = { () => adjustCounter(+1) }> Add to a cart </Button>*/}
                         {/*<Button clickHandler = { () => adjustCounter(-1) }> Remove from cart </Button>*/}
                     </article>)
                 })}

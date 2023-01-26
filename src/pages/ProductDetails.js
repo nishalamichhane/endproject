@@ -8,6 +8,7 @@ const ProductDetails = () => {
     const [ data, setData ] = useState( [] );
 
     const { id } = useParams()
+    console.log("id is"+id);
 
     useEffect( () => {
         const controller = new AbortController();
@@ -20,6 +21,7 @@ const ProductDetails = () => {
                     signal: controller.signal,
                 } );
                 setData( response.data );
+                console.log("data is: "+ response.data)
             } catch ( e ) {
                 setError( true )
 
@@ -44,14 +46,16 @@ const ProductDetails = () => {
             { loading && <p>Loading...</p> }
             { error && <p>Error: Could not fetch data!</p> }
 
-            <div className="product-page">
-                <img src={ image } alt={ title }/>
+            <div className="">
+                <article className="">
+                <img src={ image } alt={ title } width={200} height={200} />
                 <h2>{ title }</h2>
                 <p>{ description }</p>
                 <div>
                     <span>€{ price }</span>
                     <button type="button">Add to card</button>
                 </div>
+                </article>
             </div>
         </>
     );
