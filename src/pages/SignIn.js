@@ -8,8 +8,6 @@ function SignIn() {
     const [password, setPassword] = useState('');
     const [error, toggleError] = useState(false);
     const { login } = useContext(AuthContext);
-
-
     async function handleSubmit(e) {
         e.preventDefault();
         toggleError(false);
@@ -20,30 +18,20 @@ function SignIn() {
             });
             // log the result in the console
             console.log(result.data);
-
             // pass the JWT token to the login function of the context
             login(result.data.accessToken);
-
         } catch(e) {
             console.error(e);
             toggleError(true);
         }
     }
-
-        // console.log({
-        //     email: email,
-        //     wachtwoord: password,
-        // });
-        // login();
-
     return (
         <>
             <h1>Inloggen</h1>
             <p>Dit is Login Pagina</p>
-
             <form onSubmit={handleSubmit}>
                 <label htmlFor="email-field">
-                    Username:</label><br/>
+                    Gebruikersnaam:</label><br/>
                     <input
                         type="text"
                         id="email-field"
@@ -51,7 +39,6 @@ function SignIn() {
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                     /> <br/>
-
                 <label htmlFor="password-field">
                     Wachtwoord: </label><br />
                     <input
@@ -61,8 +48,6 @@ function SignIn() {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     /><br/>
-
-
                 <button
                     type="submit"
                     className="registerbtn"
@@ -70,10 +55,8 @@ function SignIn() {
                     Inloggen
                 </button>
             </form>
-
             <p>Heb je nog geen account? <Link to="/signup">Registreer</Link> je dan eerst.</p>
         </>
     );
 }
-
 export default SignIn;

@@ -55,6 +55,9 @@ form input {
 h2 {
   margin: 32px 0 24px 0;
 }
+h3 {
+  color: cornflowerblue;
+}
 
 .content {
   margin: 32px;
@@ -137,7 +140,7 @@ section  {
   border-radius: 4px;
   flex-basis: 280px;
   margin: 7px;
-  height: 200px;
+  height: 300px;
   padding: 20px;
   flex-shrink: 1;
   flex-grow: 0;
@@ -180,4 +183,36 @@ hr {
 
 .registerbtn:hover {
   opacity: 1;
+}
+footer_end {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+p section {
+  background-color: #F6F3EF;
+  font-size: 10px;
+  height: 400px;
+  overflow: hidden;
+  flex-basis: 350px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+p section p {
+  max-width: 200px;
+}
+.image_pos{
+  /*flex-basis: 350px;*/
+  /*flex-grow: 1;*/
+  /*flex-shrink: 1;*/
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }

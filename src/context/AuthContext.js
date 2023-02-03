@@ -2,9 +2,7 @@ import {createContext, useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import jwt_decode from 'jwt-decode';
 import axios from 'axios';
-
 export const AuthContext = createContext({})
-
 function AuthContextProvider ( { children }) {
     const [isAuth, toggleIsAuth] = useState({
         isAuth: false,
@@ -16,7 +14,6 @@ function AuthContextProvider ( { children }) {
     useEffect(() => {
         // retrieve the JWT from Local Storage
         const token = localStorage.getItem('token');
-
         // if there is a token, get the user data again
         if (token) {
             fetchUserData(token);
@@ -29,15 +26,13 @@ function AuthContextProvider ( { children }) {
             });
         }
     }, []);
-
     function login(JWT){
         // setIsAuth(true);
         // console.log('Gebruiker is ingelogd');
         // navigate('/profile')
-        // zet de token in de Local Storage
+        // set de token in de Local Storage
         localStorage.setItem('token', JWT);
         // decode the token so that we have the user's ID and can retrieve data for the context
-
         // pass the ID, token and redirect link to the fetchUserData function (listed below)
         fetchUserData( JWT, '/profile');
         // link de gebruiker door naar de profielpagina
@@ -55,8 +50,7 @@ function AuthContextProvider ( { children }) {
         });
         console.log('Gebruiker is uitgelogd!');
     }
-
-    // Since we use this function in login and mounting effect, it is declared here!
+    // we use this function in login and mounting effect, it is declared here!
     async function fetchUserData(token, redirectUrl) {
         try {
             // retrieve user data with the user's token and id
@@ -66,7 +60,6 @@ function AuthContextProvider ( { children }) {
                     Authorization: `Bearer ${token}`,
                 },
             });
-
             // put the data in the state
             toggleIsAuth({
                 ...isAuth,
@@ -78,16 +71,13 @@ function AuthContextProvider ( { children }) {
                 },
                 status: 'done',
             });
-
             // if a redirect URL has been provided (we do not do this with the mount effect) we will link to it
-
             if (redirectUrl) {
                 navigate(redirectUrl);
             }
-
         } catch (e) {
             console.error(e);
-            // did something go wrong? We do not place any data in the state
+            // if something goes wrong? Then We do not put any data in the state
             toggleIsAuth({
                 isAuth: false,
                 user: null,
@@ -95,14 +85,12 @@ function AuthContextProvider ( { children }) {
             });
         }
     }
-
     const contextData = {
         isAuth: isAuth.isAuth,
         user: isAuth.user,
         login: login,
         logout: logout,
     };
-
     return (
         <AuthContext.Provider value={contextData}>
             {isAuth.status === 'done' ? children : <p>Loading...</p>}

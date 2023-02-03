@@ -1,21 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import computer from '../assets/ComputerUltraThin.jpg';
+import Ljacket from '../assets/LeatherJacket.jpg';
+import Mjacket from '../assets/MensJacket.jpg';
+import ring from '../assets/ring.jpg';
 function Home() {
     return (
         <>
-            <h3>Homepagina</h3>
+            <h3 align="center">We kunnen deze dingen op de website vinden !! </h3>
             <section>
-                <p>fakeStoreApi is a free online REST API that you can use whenever you need Pseudo-real data for your e-commerce or shopping website without running any server-side code. It's awesome for
-                    teaching purposes, sample codes, tests, etc.</p>
-                <p>
-                    fakeStoreApi can be used with any type of shopping project that needs products, carts, and users in JSON format. you can use examples below to check how
-                    fakeStoreApi works and feel free to enjoy it in your awesome projects!
-                </p>
-
+                <h4>. Electronics </h4>
+                <h4>. Ladies Clothing </h4>
+                <h4>. Mens Clothing </h4>
+                <h4>. Jwelery </h4>
             </section>
+            <div className="image_pos">
+
+                <img src ={computer} alt="" width ={300} height={300}></img>
+                <img src ={Ljacket} alt="" width ={300} height={300}></img>
+               <img src ={Mjacket} alt="" width ={300} height={300}></img>
+               <img src ={ring} alt="" width ={300} height={300}></img>
+            </div>
 
         </>
     );
 }
-
 export default Home;

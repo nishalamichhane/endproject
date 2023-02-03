@@ -5,15 +5,13 @@ import axios from 'axios';
 function Profile() {
     const [profileData, setProfileData] = useState({});
     const { user } = useContext(AuthContext);
-
     useEffect(() => {
         // we retrieve the page content in the mounting cycle
         async function fetchProfileData() {
             // retrieve the token from the Local Storage to prove in the GET request that we are authorized
             const token = localStorage.getItem('token');
-
             try {
-                const result = await axios.get('http://localhost:3001/', {
+                const result = await axios.get('https://frontend-educational-backend.herokuapp.com/api/user', {
                     headers: {
                         "Content-Type": "application/json",
                         Authorization: `Bearer ${token}`,
@@ -24,11 +22,8 @@ function Profile() {
                 console.error(e);
             }
         }
-
         fetchProfileData();
     }, [])
-
-
     //console.log("email is:"+email);
     return (
         <>
@@ -49,5 +44,4 @@ function Profile() {
         </>
     );
 }
-
 export default Profile;

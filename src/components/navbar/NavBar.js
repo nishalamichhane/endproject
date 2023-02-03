@@ -2,35 +2,56 @@ import React, {useContext, useState} from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import {AuthContext} from "../../context/AuthContext";
 import SearchBar from "../searchbar/SearchBar";
-
 function NavBar() {
     const navigate = useNavigate();
-    const {isAuth, login, logout,email} = useContext( AuthContext )
+    const {isAuth, login, logout,email, user} = useContext( AuthContext )
     const [product, setProduct] = useState('');
     //console.log("Authentication status:" +isAuth);
-    //console.log("Email:"+email);
-    //console.log("Logout status:" +logout);
-    //console.log("Login status:" +login);
     return (
-
         <nav>
             <Link to="/">
           <span className="logo-container">
             <h1>
-              Web Shop
+              Web ShopN
             </h1>
           </span>
             </Link>
             {/*<SearchBar />*/}
             {/*<SearchBar setProductHandler={setProduct}/>*/}
             {(isAuth===true) ?
-
+                <div>
+                    <strong>Hello: </strong>{user.username}
+                <button
+                type="button"
+                onClick={() => navigate('/profile')}
+                >
+                Profiel
+                </button>
+                <button
+                type="button"
+                onClick={() => navigate('/products')}
+                >
+                Producten
+                </button>
+                <button
+                type="button"
+                onClick={() => navigate('/searchresults')}
+                >
+                Zoeken met Categorie
+                </button>
+                {/*<button*/}
+                {/*type="button"*/}
+                {/*onClick={() => navigate('/winkelwagen')}*/}
+                {/*>*/}
+                {/*In Winkelwagen*/}
+                {/*</button>*/}
                 <button
                     type="button"
                     onClick={logout}
                 >
                     Log Out
                 </button>
+                </div>
                 :
                 <div>
                     <button
@@ -49,23 +70,27 @@ function NavBar() {
                         type="button"
                         onClick={() => navigate('/profile')}
                     >
-                        Profile
+                        Profiel
                     </button>
                     <button
                         type="button"
                         onClick={() => navigate('/products')}
                     >
-                        Products
+                        Producten
                     </button>
                     <button
                         type="button"
                         onClick={() => navigate('/searchresults')}
                     >
-                        Product Search by Category
+                        Zoeken met Categorie
                     </button>
-
+                    {/*<button*/}
+                    {/*    type="button"*/}
+                    {/*    onClick={() => navigate('/winkelwagen')}*/}
+                    {/*>*/}
+                    {/*    In Winkelwagen*/}
+                    {/*</button>*/}
                     {/*Shopping Cart<img src="../assets/shopping-cart.png"/>*/}
-
                 </div>}
         </nav>
     );
