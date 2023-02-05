@@ -1,38 +1,218 @@
-.App {
-  text-align: center;
+/*In dit voorbeeld staat alle CSS in één bestand, dit wil je eigenlijk nooit.
+Om de het begrijpen van de bestaande code zo eenvoudig mogelijk te maken,
+is het voor deze opdracht wel gedaan!*/
+
+/*Algemene button styling*/
+button {
+  border-radius: 4px;
+  border: none;
+  /*color: white;*/
+  padding: 8px 16px;
+  background-color: #f5ab00;
+  color: white;
+  font-weight: bold;
+}
+/*Zorgt ervoor dat als twee buttons naast elkaar staan, er altijd ruimte tussen blijft*/
+button + button {
+  margin-left: 8px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button:hover {
+  cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a,
+a:visited,
+a:active {
+  color: #0d3b66;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+a:hover {
+  color: #ea7e1f;
+}
+
+/*Algemene formulier-styling*/
+/*form {
   display: flex;
   flex-direction: column;
+  background-color: #faeab3;
+  padding: 32px;
+  max-width: 300px;
+  border-radius: 4px;
+}
+
+form label {
+  margin: 4px 0;
+  font-weight: bold;
+}
+
+form input {
+  width: 100%;
+  padding: 4px 8px;
+  margin: 6px 0;
+}*/
+
+h2 {
+  margin: 32px 0 24px 0;
+}
+h3 {
+  color: cornflowerblue;
+}
+
+.content {
+  margin: 32px;
+}
+
+.form-button {
+  width: 100%;
+}
+
+nav {
+  background-color: cornflowerblue;
+  color: white;
+  display: flex;
+  padding: 0 32px;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+}
+
+nav a,
+nav a:visited,
+nav a:active {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-@keyframes App-logo-spin {
+.user h5 {
+  margin-right: 8px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 150px;
+}
+
+.logo-container img {
+  width: 40px;
+  margin-right: 8px;
+}
+
+section  {
+  margin: 0 0 50px 0;
+}
+
+/*Zet mij op een element en ik blijf voor altijd draaien!*/
+.loading-icon {
+  width: 16px;
+  height: 16px;
+  animation: rotating 1.5s linear infinite;
+}
+
+@keyframes rotating {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
+}
+
+.div-container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  /*background-color: #F2F3D9;*/
+}
+.article-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: lightyellow;
+  text-align: center;
+  border-radius: 4px;
+  flex-basis: 280px;
+  margin: 7px;
+  height: 300px;
+  padding: 20px;
+  flex-shrink: 1;
+  flex-grow: 0;
+}
+.article-container h5{
+  font-family: Quicksand;
+}
+.article-container h3{
+  font-family: Quicksand;
+}
+.article-container p{
+  font-family: Roboto Condensed;
+}
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 30%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  /*display: inline-block;*/
+  border: none;
+  background: #f1f1f1;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #f5ab00;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  /*width: 100%;*/
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+footer_end {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+p section {
+  background-color: #F6F3EF;
+  font-size: 10px;
+  height: 400px;
+  overflow: hidden;
+  flex-basis: 350px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+p section p {
+  max-width: 200px;
+}
+.image_pos{
+  /*flex-basis: 350px;*/
+  /*flex-grow: 1;*/
+  /*flex-shrink: 1;*/
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
