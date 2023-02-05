@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+**# Aan de slag met de react-app**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[De Link van de project in de GitHub] [React app gemaakt](https://github.com/nishalamichhane/endproject).
 
-## Available Scripts
+## 1. Beschikbare scripts (NPM Commandos)
 
-In the project directory, you can run:
+In de projectdirectory van de webstorm kunt u het volgende uitvoeren:
 
-### `npm start`
+### `npm install` 
+_als npm nog niet heeft geinstalleerd in het systeem/computer_
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+of
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### `npm start` 
+_als npm al heeft geinstalleerd_
 
-### `npm test`
+**App moet in de browser draaien**
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+U kunt ook fouten in de console zien. Als de applicatie zonder fouten is, dan kan fouten niet zien op console.
 
-### `npm run build`
+## 2. Lijst van Benodigdheden
+1. WebStorm
+   * Webstorm IDE is webstorm is nodig om frontend-code te schrijven.
+   * U moet webstorm downloaden en installeren
+   * je moet reactieafhankelijkheden installeren tijdens het maken van het project
+2. Rest EndPoints
+   * [Fake storeAPI gebruikt om producten op te halen](https://fakestoreapi.com)
+   * [SignUP: Database van NOVI gebruikt](https://frontend-educational-backend.herokuapp.com/api/auth/signup)
+   * [SignIn: Database van NOVI gebruikt](https://frontend-educational-backend.herokuapp.com/api/auth/signin)
+   * [Beveiligd Endpoint - Profiel:Database van NOVI gebruikt](https://frontend-educational-backend.herokuapp.com/api/user)
+3. Github Link
+   * [Github Link van Project](https://github.com/nishalamichhane/endproject)
+## 3. Registratie Validatie
+1. Het emailadres moet daadwerkelijk een @ bevatten
+2. Het wachtwoord en gebruikersnaam moeten minimaal 6 tekens bevatten
+3. Wanneer je een gebruiker probeert te registreren met een username die al bestaat, krijg je een foutcode. De details over deze foutmelding vindt je in e.response
+4. Indien de registratie succesvol was, zie login pagina succesmelding.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 4. Randvoorwaarden
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Dit applicatie heeft nu seven paginas:
+1. _HomePagina_
+2. _Registratie Pagina_
+3. _Inloggen Pagina_
+4. _Profiel Pagina_
+5. _Producten Pagina_
+6. _Productdetails Pagina_
+7. _ZoekenmetCategorie Pagina_
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### StappenPlan
+Deze applicatie is zo simpele applicatie om te draaien. 
 
-### `npm run eject`
+** *De startpagina kan worden gezien door aan de linkerkant van de link te klikken dat is WebShopN*
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+** *Inschrijven kan door het invullen van het aanmeldformulier *
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+** *U kunt inloggen door op het login-menu te klikken en de juiste gebruikersnaam en wachtwoord in te voeren*
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+** *De profielpagina wordt omgeleid nadat u met succes bent ingelogd op het systeem*
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+** *Gebruikersnaam is te zien bovenaan de pagina nadat u bent ingelogd op het systeem*
 
-## Learn More
+** *Producten kunnen worden bekeken door op de productlink te klikken in het menu van Navbar*
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+** *Op de pagina Productenlijst, kunnen we de titel ook zien. We moeten op de titel klikken om naar de detailpagina te gaan*
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+** *Producten kunnen op categorie worden gezocht. Daarvoor moeten we op de link 'ZoekenmetCategorie' klikken*
 
-### Code Splitting
+## 5. Componenten en AuthContext
+**Navbar en footer**  hebben gemaakt, die in het systeem kunnen worden hergebruikt. Conext (Authcontext) is ook gebruikt in het systeem voor Authenticatie.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

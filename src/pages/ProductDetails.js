@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import axios from "axios";
+import products from "./Products";
 const ProductDetails = () => {
     const [ loading, setLoading ] = useState( false )
     const [ error, setError ] = useState( false );
@@ -45,7 +46,8 @@ const ProductDetails = () => {
                 <p>{ description }</p>
                 <div>
                     <span>€{ price }</span>
-                    <button type="button">In Winkelwagen</button>
+                    <button type="button">Toevoegen aan Winkelwagen</button>
+                   <p><Link to='/products'>Doorgaan met winkelen</Link></p>
                 </div>
                 </article>
                 { loading && <p>Loading...</p> }
