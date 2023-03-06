@@ -6,7 +6,6 @@ import Home from './pages/Home';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import './App.css';
-import './index.css';
 import {AuthContext} from "./context/AuthContext";
 import Footer from "./components/footer/Footer";
 import SearchResults from "./pages/SearchResults";
@@ -18,6 +17,8 @@ function App() {
   return (
       <>
         <NavBar />
+          <section className="outer-container">
+              <div className="inner-container">
         <div className="content">
           <Routes>
             <Route path="/" element={<Home/>}/>
@@ -31,6 +32,8 @@ function App() {
               <Route path="/profile" element={ isAuth ? <Profile /> : <Navigate to="/" />}/>
           </Routes>
         </div>
+              </div>
+          </section>
         <div>
           <Footer office="WebShopN" made_in_year="2023" />
         </div>
