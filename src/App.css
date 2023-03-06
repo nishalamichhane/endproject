@@ -1,7 +1,22 @@
-/*In dit voorbeeld staat alle CSS in één bestand, dit wil je eigenlijk nooit.
-Om de het begrijpen van de bestaande code zo eenvoudig mogelijk te maken,
-is het voor deze opdracht wel gedaan!*/
-
+/* Dit is voor outer en inner container*/
+.outer-container{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /*border: red solid 1px;*/
+  /*background-color: cornflowerblue;*/
+}
+.inner-container{
+  flex-basis: 1200px;
+  flex-shrink: 1;
+  flex-grow: 0;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /*border: cornflowerblue solid 1px;*/
+}
 /*Algemene button styling*/
 button {
   border-radius: 4px;
@@ -16,57 +31,29 @@ button {
 button + button {
   margin-left: 8px;
 }
-
 button:hover {
   cursor: pointer;
 }
-
 a,
 a:visited,
 a:active {
   color: #0d3b66;
 }
-
 a:hover {
   color: #ea7e1f;
 }
-
-/*Algemene formulier-styling*/
-/*form {
-  display: flex;
-  flex-direction: column;
-  background-color: #faeab3;
-  padding: 32px;
-  max-width: 300px;
-  border-radius: 4px;
-}
-
-form label {
-  margin: 4px 0;
-  font-weight: bold;
-}
-
-form input {
-  width: 100%;
-  padding: 4px 8px;
-  margin: 6px 0;
-}*/
-
 h2 {
   margin: 32px 0 24px 0;
 }
 h3 {
   color: cornflowerblue;
 }
-
 .content {
   margin: 32px;
 }
-
 .form-button {
   width: 100%;
 }
-
 nav {
   background-color: cornflowerblue;
   color: white;
@@ -75,39 +62,32 @@ nav {
   align-items: center;
   justify-content: space-between;
 }
-
 nav a,
 nav a:visited,
 nav a:active {
   color: white;
 }
-
 .user {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
 .user h5 {
   margin-right: 8px;
 }
-
 .logo-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 150px;
 }
-
 .logo-container img {
   width: 40px;
   margin-right: 8px;
 }
-
 section  {
   margin: 0 0 50px 0;
 }
-
 /*Zet mij op een element en ik blijf voor altijd draaien!*/
 .loading-icon {
   width: 16px;
@@ -115,21 +95,18 @@ section  {
   animation: rotating 1.5s linear infinite;
 }
 
-@keyframes rotating {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
+/*@keyframes rotating {*/
+/*  from {*/
+/*    transform: rotate(0deg);*/
+/*  }*/
+/*  to {*/
+/*    transform: rotate(360deg);*/
+/*  }*/
+/*}*/
 .div-container{
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-
-  /*background-color: #F2F3D9;*/
 }
 .article-container{
   display: flex;
@@ -146,10 +123,11 @@ section  {
   flex-grow: 0;
 }
 .article-container h5{
-  font-family: Quicksand;
+  font-family: 'Quicksand', 'Arial';
+/*  example fallbackfont arial*/
 }
 .article-container h3{
-  font-family: Quicksand;
+  font-family: 'Quicksand';
 }
 .article-container p{
   font-family: Roboto Condensed;
@@ -163,7 +141,6 @@ input[type=text], input[type=password] {
   border: none;
   background: #f1f1f1;
 }
-
 /* Overwrite default styles of hr */
 hr {
   border: 1px solid #f1f1f1;
@@ -180,7 +157,6 @@ hr {
   /*width: 100%;*/
   opacity: 0.9;
 }
-
 .registerbtn:hover {
   opacity: 1;
 }
@@ -189,7 +165,6 @@ footer_end {
   flex-direction: row;
   flex-wrap: wrap;
 }
-
 p section {
   background-color: #F6F3EF;
   font-size: 10px;
@@ -203,14 +178,10 @@ p section {
   justify-content: center;
   align-items: center;
 }
-
 p section p {
   max-width: 200px;
 }
 .image_pos{
-  /*flex-basis: 350px;*/
-  /*flex-grow: 1;*/
-  /*flex-shrink: 1;*/
   display: flex;
   flex-direction: row;
   justify-content: center;

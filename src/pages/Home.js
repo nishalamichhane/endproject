@@ -15,7 +15,6 @@ function Home() {
                 <h4>. Jwelery </h4>
             </section>
             <div className="image_pos">
-
                 <img src ={computer} alt="" width ={300} height={300}></img>
                 <img src ={Ljacket} alt="" width ={300} height={300}></img>
                <img src ={Mjacket} alt="" width ={300} height={300}></img>
