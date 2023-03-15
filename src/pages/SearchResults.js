@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import "../App.css";
 import {Link, NavLink} from "react-router-dom";
 import axios from "axios";
@@ -8,12 +8,14 @@ import Footer from "../components/footer/Footer";
 import ErrorMessage from "../components/errorMessage/ErrorMessage";
 import SearchBar from "../components/searchbar/SearchBar";
 import Button from "../components/button/Button";
+import {ShopContext} from "../context/ShopContext";
 const SearchResults = () => {
     const [product, setProduct] = useState([])
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
     const [counter, setCounter] = useState(0);
     const [query, setQuery] = useState([]);
+    const {addToCart, cartItems} = useContext(ShopContext);
     function adjustCounter(num){
         setCounter(counter=>counter+num);
     }
@@ -78,6 +80,8 @@ const SearchResults = () => {
                         {/*<p>{counter}</p>*/}
                         {/*<Button clickHandler = { () => adjustCounter(+1) }> Add to a cart </Button>*/}
                         {/*<Button clickHandler = { () => adjustCounter(-1) }> Remove from cart </Button>*/}
+                        <button type = "button" onClick={()=> addToCart(product.id)}>Add to Cart {cartItems.filter(x => x===product.id).length> 0 &&
+                            <> ({cartItems.filter(x => x===product.id).length})</>}</button>
                     </article>)
                 })}
                 {loading && <span>Loading......</span>}

@@ -1,17 +1,55 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-function WinkelWagen() {
-    return (
-        <>
-            <h3>Cart Pagina</h3>
-            <section>
-                <p>Cart cart cart cart Cart cart cart cartCart cart cart cartCart cart cart cartCart cart cart cartCart cart cart cartCart cart cart cart
-                    Cart cart cart cartCart cart cart cartCart cart cart cartCart cart cart cartCart cart cart cartCart cart cart cart
-                    Cart cart cart cartCart cart cart cartCart cart cart cartCart cart cart cartCart cart cart cart
-                    Cart cart cart cartCart cart cart cartCart cart cart cartCart cart cart cart</p>
+import React, {useContext, useEffect, useState} from 'react';
+import Products from "./Products";
+import {ShopContext} from "../context/ShopContext";
+import CartItem from "./cart-item";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-            </section>
-        </>
-    );
+ export const WinkelWagen = (props) => {
+    const {cartItems} = useContext(ShopContext);
+     const navigate = useNavigate();
+     console.log("cart items:" +cartItems);
+    //const {id, title, category, image, price} = props.data;
+     const [product, setProduct] = useState([]);
+     const [loading, setLoading] = useState(false);
+     const [error, setError] = useState(false);
+     useEffect(()=>{
+         async function fetchProductData(){
+             setLoading(true);
+             try{
+                 const response =await axios.get('https://fakestoreapi.com/products');
+                 setProduct(response.data);
+                 //console.log("response is"+response.data);
+             }
+             catch(e){
+                 console.error(e);
+                 setError(true);
+             }
+             setLoading(false);
+         }
+         fetchProductData();
+     }, [])
+    return (
+
+        // <div>
+        //     <img src = {image}/>
+        //     <p>{category}</p>
+        //
+        // </div>
+        <div className="cart">
+            <div>
+                <h1>Your Cart Items</h1>
+            </div>
+            <div className="cart">
+                {product.map((product) => {
+                    // if (cartItems[product.id] !== 0) {
+                    if (cartItems.includes(product.id)) {
+                        return <CartItem data={product} />;
+                    }
+                })}
+            </div>
+        </div>
+
+    )
 }
 export default WinkelWagen;

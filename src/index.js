@@ -5,15 +5,17 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AuthContextProvider from "./context/AuthContext";
-
+import {ShopContextProvider} from "./context/ShopContext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
+        <ShopContextProvider>
         <Router>
             <AuthContextProvider>
                 <App/>
             </AuthContextProvider>
         </Router>
+        </ShopContextProvider>
     </React.StrictMode>
 );
 // If you want to start measuring performance in your app, pass a function
