@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import {Link, useParams} from "react-router-dom";
+import {useNavigate, Link, useParams} from "react-router-dom";
 import axios from "axios";
 import products from "./Products";
 const ProductDetails = () => {
+    const navigate = useNavigate();
     const [ loading, setLoading ] = useState( false )
     const [ error, setError ] = useState( false );
     const [ data, setData ] = useState( [] );
     const { id } = useParams()
-    console.log("id is"+id);
     useEffect( () => {
         const controller = new AbortController();
         const fetchData = async () => {
@@ -39,20 +39,20 @@ const ProductDetails = () => {
     const { title, image, price, description } = data;
     return (
         <>
-            <div className="">
-                <article className="">
+            <section className="">
+                <div className="">
                 <img src={ image } alt={ title } width={200} height={200} />
                 <h2>{ title }</h2>
                 <p>{ description }</p>
                 <div>
                     <span>€{ price }</span>
-                    <button type="button">Toevoegen aan Winkelwagen</button>
-                   <p><Link to='/products'>Doorgaan met winkelen</Link></p>
+
+                    <p><Link to='/products'>Doorgaan met winkelen</Link></p>
                 </div>
-                </article>
+                </div>
                 { loading && <p>Loading...</p> }
                 {/*{ error && <p>Error: Could not fetch data!</p> }*/}
-            </div>
+            </section>
         </>
     );
 };

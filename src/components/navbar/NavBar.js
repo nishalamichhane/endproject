@@ -40,6 +40,12 @@ function NavBar() {
                 >
                     Log Out
                 </button>
+                    <button
+                        type="button"
+                        onClick={() => navigate('/winkelwagen')}
+                    >
+                        Cart
+                    </button>
                 </div>
                 :
                 <div>
@@ -72,6 +78,12 @@ function NavBar() {
                         onClick={() => navigate('/searchresults')}
                     >
                         Zoeken met Categorie
+                    </button>
+                    <button
+                        type="button"
+                        onClick={() => navigate('/winkelwagen')}
+                    >
+                        Winkelwagen
                     </button>
                 </div>}
         </nav>
