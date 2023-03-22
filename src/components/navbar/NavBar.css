@@ -1,3 +1,41 @@
+/*Zorgt ervoor dat als twee buttons naast elkaar staan, er altijd ruimte tussen blijft*/
+button + button {
+    margin-left: 8px;
+}
 .navbar{
     background-color: cornflowerblue;
 }
+nav {
+    background-color: cornflowerblue;
+    color: white;
+    display: flex;
+    padding: 10px 32px;
+    align-items: center;
+    justify-content: space-between;
+}
+nav a,
+nav a:visited,
+nav a:active {
+    color: white;
+}
+/*  voor iPad*/
+@media only screen and (max-width: 768px) {
+    nav {
+
+        flex-direction: column;
+    }
+    .navbar div{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    button + button {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    h1{
+        padding: 10px;
+    }
+
+}
+

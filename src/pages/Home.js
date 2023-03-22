@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import computer from '../assets/ComputerUltraThin.jpg';
-import Ljacket from '../assets/LeatherJacket.jpg';
-import Mjacket from '../assets/MensJacket.jpg';
-import ring from '../assets/ring.jpg';
+import computer from '../assets/computer-1419134_960_720.png';
+import Ljacket from '../assets/gents-jacket.png';
+import Mjacket from '../assets/jas.png';
+import ring from '../assets/MicrosoftTeams-image.png';
 function Home() {
     return (
         <>
