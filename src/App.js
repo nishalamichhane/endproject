@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import './App.css';
+import { useForm } from 'react-hook-form';
 import {AuthContext} from "./context/AuthContext";
 // import {ShopContextProvider} from "./context/ShopContext";
 import Footer from "./components/footer/Footer";

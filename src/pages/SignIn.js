@@ -28,7 +28,7 @@ function SignIn() {
     return (
         <>
             <h1>Inloggen</h1>
-            <p>Dit is Login Pagina</p>
+
             <form onSubmit={handleSubmit}>
                 <label htmlFor="email-field">
                     Gebruikersnaam:</label><br/>
