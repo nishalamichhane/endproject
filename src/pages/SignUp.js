@@ -4,7 +4,7 @@ import "../App.css";
 import axios from "axios";
 import {useForm} from "react-hook-form";
 import ErrorMessage from "../components/errorMessage/ErrorMessage";
-//import Button from "../components/button/Button";
+import Button from "../components/button/Button";
 
 function SignUp() {
     //state for the form
@@ -16,11 +16,7 @@ function SignUp() {
     // state for functionality
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(false);
-
-
     async function onFormSubmit(data) {
-        //console.log(data);
-        // e.preventDefault();
         toggleError(false);
         toggleLoading(true);
         try {
@@ -36,8 +32,6 @@ function SignUp() {
         }
         toggleLoading(false);
         }
-
-    //console.log('ERROR', errors);
     return (
         <>
             <h1>Registreren</h1>
@@ -47,8 +41,6 @@ function SignUp() {
                     <input
                         type="text"
                         id="email-field"
-                        // value={email}
-                        // onChange={(e) => setEmail(e.target.value)}
                         {...register("email", {
                             required: {
                                 value: true,
@@ -92,23 +84,14 @@ function SignUp() {
                                 message: "Wachtwoord moet 6 tekens bevatten en beter om speciaal karacter ook gebruiken tussen",
                             },
                         })}
-                        // value={password}
-                        // onChange={(e) => setPassword(e.target.value)}
                     /><br/>
                 {errors.password && <ErrorMessage message = {errors.password.message} />}
-
-                    {/*<Button*/}
-                    {/*    className="registerbtn"*/}
-                    {/*    children="Register"*/}
-                    {/*    type="submit"*/}
-                    {/*/>*/}
-
-                <button
-                    type="submit"
-                    className="registerbtn"
-                >
-                    Registeren
-                </button>
+                    <Button
+                        className="registerbtn"
+                        type="submit"
+                    >
+                        Registreren
+                    </Button>
             </form>
             <p>Heb je al een account? Je kun je <Link to="/signin">hier</Link> inloggen.</p>
         </>
