@@ -2,6 +2,7 @@ import React, {useContext, useState} from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import {AuthContext} from "../../context/AuthContext";
 import SearchBar from "../searchbar/SearchBar";
+//import button from '../button';
 import './NavBar.css';
 function NavBar() {
     const navigate = useNavigate();
@@ -16,12 +17,12 @@ function NavBar() {
             {(isAuth===true) ?
                 <div>
                     <strong>Hello: </strong>{user.username}
-                <button
-                type="button"
-                onClick={() => navigate('/profile')}
-                >
-                Profiel
-                </button>
+                {/*<button*/}
+                {/*type="button"*/}
+                {/*onClick={() => navigate('/profile')}*/}
+                {/*>*/}
+                {/*Profiel*/}
+                {/*</button>*/}
                 <button
                 type="button"
                 onClick={() => navigate('/products')}
@@ -67,6 +68,7 @@ function NavBar() {
                     >
                         Profiel
                     </button>
+
                     <button
                         type="button"
                         onClick={() => navigate('/products')}

@@ -14,7 +14,7 @@ import Button from "../components/button/Button";
 const Products = () => {
     const navigate = new useNavigate();
     const {addToCart, cartItems} = useContext(ShopContext);
-    const [product, setProduct] = useState([])
+    const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
     const [counter, setCounter] = useState(0);
@@ -37,7 +37,6 @@ const Products = () => {
     return (
         <>
             <div className="navbar">
-
             </div>
             <div>
                 <h2 align="center">Producten Pagina</h2>
@@ -55,7 +54,7 @@ const Products = () => {
                     </article>)
                 })}
                 {loading && <span>Loading......</span>}
-                {error && <p>Problem to retrieve data. Please check the JSON links!!</p>}
+                {error && <ErrorMessage message="Problem to retrieve data. Please check the JSON links!!" />}
             </div>
         </>
     );

@@ -5,6 +5,7 @@
   --very-pale-blue: hsl(225, 100%, 98%);
   --desaturated-blue: hsl(224, 23%, 55%);
   --dark-blue: hsl(223, 47%, 23%);
+  --dark-red: hsl(0, 100%, 50%);
 }
 *{
   margin: 0;
@@ -152,19 +153,7 @@ hr {
   margin-bottom: 25px;
 }
 /* Set a style for the submit button */
-.registerbtn {
-  background-color: #f5ab00;
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  /*width: 100%;*/
-  opacity: 0.9;
-}
-.registerbtn:hover {
-  opacity: 1;
-}
+
 footer_end {
   display: flex;
   flex-direction: row;
@@ -233,8 +222,13 @@ p section p {
   margin: 10px;
   cursor: pointer;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 902px) {
   .image_pos{
     flex-direction: column;
   }
 }
+/*@media only screen and (min-width: 769px) , (max-width: 902px) {*/
+/*  .image_pos{*/
+/*    flex-direction: column;*/
+/*  }*/
+/*}*/

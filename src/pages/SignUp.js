@@ -2,8 +2,13 @@ import React, {useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import "../App.css";
 import axios from "axios";
+import {useForm} from "react-hook-form";
+import ErrorMessage from "../components/errorMessage/ErrorMessage";
+//import Button from "../components/button/Button";
+
 function SignUp() {
     //state for the form
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -11,15 +16,18 @@ function SignUp() {
     // state for functionality
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(false);
-    async function handleSubmit(e) {
-        e.preventDefault();
+
+
+    async function onFormSubmit(data) {
+        //console.log(data);
+        // e.preventDefault();
         toggleError(false);
         toggleLoading(true);
         try {
             await axios.post(`https://frontend-educational-backend.herokuapp.com/api/auth/signup`, {
-                email: email,
-                password: password,
-                username: username,
+                email: data.email,
+                password: data.password,
+                username: data.username,
             });
             navigate('/signin')
         } catch(e) {
@@ -28,37 +36,73 @@ function SignUp() {
         }
         toggleLoading(false);
         }
+
+    //console.log('ERROR', errors);
     return (
         <>
             <h1>Registreren</h1>
-            <p>Dit is registreren pagina. </p>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit(onFormSubmit)}>
                 <label htmlFor="email-field">
                     Emailadres:</label><br/>
                     <input
                         type="text"
                         id="email-field"
-                        name="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        // value={email}
+                        // onChange={(e) => setEmail(e.target.value)}
+                        {...register("email", {
+                            required: {
+                                value: true,
+                                message: "Emailadres is verplicht",
+                            },
+                            validate: (value) => value.includes('@') || 'Email moet een @ bevatten',
+                        })}
                     /><br/>
+                {errors.email && <ErrorMessage message = {errors.email.message} />}
+
                 <label htmlFor="username-field">
                     Gebruikersnaam:</label><br/>
                     <input
                         type="text"
                         id="username-field"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
+                        // onChange={(e) => setUsername(e.target.value)}
+                        {...register("username", {
+                            required: {
+                                value: true,
+                                message: "Gebruikersnaam is verplicht",
+                            },
+                            minLength: {
+                                value: 6,
+                                message: "Gebruikersnaam moet 6 tekens bevatten",
+                            },
+                        })}
                     /><br/>
+                {errors.username && <ErrorMessage message = {errors.username.message} />}
                 <label htmlFor="password-field">
                     Wachtwoord:</label><br/>
                     <input
                         type="password"
                         id="password-field"
-                        name="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        {...register("password", {
+                            required: {
+                                value: true,
+                                message: "Wachtwoord is verplicht",
+                            },
+                            minLength: {
+                                value: 6,
+                                message: "Wachtwoord moet 6 tekens bevatten en beter om speciaal karacter ook gebruiken tussen",
+                            },
+                        })}
+                        // value={password}
+                        // onChange={(e) => setPassword(e.target.value)}
                     /><br/>
+                {errors.password && <ErrorMessage message = {errors.password.message} />}
+
+                    {/*<Button*/}
+                    {/*    className="registerbtn"*/}
+                    {/*    children="Register"*/}
+                    {/*    type="submit"*/}
+                    {/*/>*/}
+
                 <button
                     type="submit"
                     className="registerbtn"
@@ -66,7 +110,7 @@ function SignUp() {
                     Registeren
                 </button>
             </form>
-            <p>Heb je al een account? Je kunt je <Link to="/signin">hier</Link> inloggen.</p>
+            <p>Heb je al een account? Je kun je <Link to="/signin">hier</Link> inloggen.</p>
         </>
     );
 }

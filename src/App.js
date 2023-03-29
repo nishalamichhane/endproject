@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import './App.css';
+import { useForm } from 'react-hook-form';
 import {AuthContext} from "./context/AuthContext";
 // import {ShopContextProvider} from "./context/ShopContext";
 import Footer from "./components/footer/Footer";
@@ -22,7 +23,6 @@ function App() {
           <section className="outer-container">
               <div className="inner-container">
         <div className="content">
-
           <Routes>
             <Route path="/" element={<Home/>}/>
             {/*<Route path="/products" element= {isAuth===true ? <Products/> : <Navigate to="/"/> }/>*/}
