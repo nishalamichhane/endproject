@@ -13,7 +13,6 @@ function SignIn() {
     const [error, toggleError] = useState(false);
     const { login } = useContext(AuthContext);
     async function onFormSubmit(data) {
-        //e.preventDefault();
         toggleError(false);
         try {
             const result = await axios.post(`https://frontend-educational-backend.herokuapp.com/api/auth/signin`, {
@@ -32,17 +31,9 @@ function SignIn() {
     return (
         <>
             <h1>Inloggen</h1>
-
             <form onSubmit={handleSubmit(onFormSubmit)}>
                 <label htmlFor="email-field">
                     Gebruikersnaam:</label><br/>
-                    {/*<input*/}
-                    {/*    type="text"*/}
-                    {/*    id="email-field"*/}
-                    {/*    name="username"*/}
-                    {/*    value={username}*/}
-                    {/*    onChange={(e) => setUsername(e.target.value)}*/}
-                    {/*/> <br/>*/}
                 <input
                     type="text"
                     id="username-field"
@@ -56,25 +47,6 @@ function SignIn() {
                 {errors.username && <ErrorMessage message = {errors.username.message} />}
                 <label htmlFor="password-field">
                     Wachtwoord: </label><br />
-                    {/*<input*/}
-                    {/*    type="password"*/}
-                    {/*    id="password-field"*/}
-                    {/*    name="password"*/}
-                    {/*    value={password}*/}
-                    {/*    onChange={(e) => setPassword(e.target.value)}*/}
-                    {/*/><br/>*/}
-                {/*<input*/}
-                {/*    type="password"*/}
-                {/*    id="password-field"*/}
-                {/*    {...register("password", {*/}
-                {/*        required: {*/}
-                {/*            value: true,*/}
-                {/*            message: "Wachtwoord is verplicht",*/}
-                {/*        },*/}
-                {/*    })}*/}
-                {/*    // value={password}*/}
-                {/*    // onChange={(e) => setPassword(e.target.value)}*/}
-                {/*/>*/}
                 <input
                     type="password"
                     id="password-field"
@@ -88,8 +60,6 @@ function SignIn() {
                             message: "Wachtwoord moet 6 tekens bevatten en beter om speciaal karacter ook gebruiken tussen",
                         },
                     })}
-                    // value={password}
-                    // onChange={(e) => setPassword(e.target.value)}
                 />
                  {errors.password && <ErrorMessage message = {errors.password.message} />}
                 <br/>

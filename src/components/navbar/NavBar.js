@@ -2,8 +2,8 @@ import React, {useContext, useState} from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import {AuthContext} from "../../context/AuthContext";
 import SearchBar from "../searchbar/SearchBar";
-//import button from '../button';
 import './NavBar.css';
+import Button from "../button/Button";
 function NavBar() {
     const navigate = useNavigate();
     const {isAuth, login, logout,email, user} = useContext( AuthContext )
@@ -17,76 +17,75 @@ function NavBar() {
             {(isAuth===true) ?
                 <div>
                     <strong>Hello: </strong>{user.username}
-                {/*<button*/}
-                {/*type="button"*/}
-                {/*onClick={() => navigate('/profile')}*/}
-                {/*>*/}
-                {/*Profiel*/}
-                {/*</button>*/}
-                <button
-                type="button"
-                onClick={() => navigate('/products')}
-                >
-                Producten
-                </button>
-                <button
-                type="button"
-                onClick={() => navigate('/searchresults')}
-                >
-                Zoeken met Categorie
-                </button>
-                <button
-                    type="button"
-                    onClick={logout}
-                >
-                    Log Out
-                </button>
-                    <button
+                    <Button
                         type="button"
-                        onClick={() => navigate('/winkelwagen')}
-                    >
-                        Cart
-                    </button>
-                </div>
-                :
-                <div>
-                    <button
-                        type="button"
-                        onClick={() => navigate('/signin')}
-                    >
-                        Log in
-                    </button>
-                    <button
-                        type="button"
-                        onClick={() => navigate('/signup')}
-                    >
-                        Registreren
-                    </button>
-                    <button
-                        type="button"
-                        onClick={() => navigate('/profile')}
+                        clickHandler={() => navigate('/profile')}
                     >
                         Profiel
-                    </button>
-
-                    <button
+                    </Button>
+                    <Button
+                    type="button"
+                    clickHandler={() => navigate('/products')}
+                    >
+                    Producten
+                    </Button>
+                    <Button
+                    type="button"
+                    clickHandler={() => navigate('/searchresults')}
+                    >
+                    Zoeken met Categorie
+                    </Button>
+                    <Button
                         type="button"
-                        onClick={() => navigate('/products')}
+                        clickHandler={logout}
+                    >
+                        Log Out
+                    </Button>
+                        <Button
+                            type="button"
+                            clickHandler={() => navigate('/winkelwagen')}
+                        >
+                            Winkelwagen
+                        </Button>
+                    </div>
+                :
+                <div>
+                    <Button
+                        type="button"
+                        clickHandler={() => navigate('/signin')}
+                    >
+                        Log in
+                    </Button>
+                    <Button
+                        type="button"
+                        clickHandler={() => navigate('/signup')}
+                    >
+                        Registreren
+                    </Button>
+                    <Button
+                        type="button"
+                        clickHandler={() => navigate('/profile')}
+                    >
+                        Profiel
+                    </Button>
+                    <Button
+                        type="button"
+                        clickHandler={() => navigate('/products')}
                     >
                         Producten
-                    </button>
-                    <button
+                    </Button>
+                    <Button
                         type="button"
-                        onClick={() => navigate('/searchresults')}
+                        clickHandler={() => navigate('/searchresults')}
                     >
                         Zoeken met Categorie
-                    </button>
-                    <button
+                    </Button>
+                    <Button
                         type="button"
-                        onClick={() => navigate('/winkelwagen')}
+                        clickHandler={() => navigate('/winkelwagen')}
                     >
                         Winkelwagen
-                    </button>
+                    </Button>
                 </div>}
         </nav>
             </div>
