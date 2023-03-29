@@ -4,6 +4,7 @@ import "../App.css";
 import axios from "axios";
 import {useForm} from "react-hook-form";
 import ErrorMessage from "../components/errorMessage/ErrorMessage";
+//import Button from "../components/button/Button";
 
 function SignUp() {
     //state for the form
@@ -24,9 +25,9 @@ function SignUp() {
         toggleLoading(true);
         try {
             await axios.post(`https://frontend-educational-backend.herokuapp.com/api/auth/signup`, {
-                email: email,
-                password: password,
-                username: username,
+                email: data.email,
+                password: data.password,
+                username: data.username,
             });
             navigate('/signin')
         } catch(e) {
@@ -40,7 +41,6 @@ function SignUp() {
     return (
         <>
             <h1>Registreren</h1>
-
             <form onSubmit={handleSubmit(onFormSubmit)}>
                 <label htmlFor="email-field">
                     Emailadres:</label><br/>
@@ -96,6 +96,13 @@ function SignUp() {
                         // onChange={(e) => setPassword(e.target.value)}
                     /><br/>
                 {errors.password && <ErrorMessage message = {errors.password.message} />}
+
+                    {/*<Button*/}
+                    {/*    className="registerbtn"*/}
+                    {/*    children="Register"*/}
+                    {/*    type="submit"*/}
+                    {/*/>*/}
+
                 <button
                     type="submit"
                     className="registerbtn"

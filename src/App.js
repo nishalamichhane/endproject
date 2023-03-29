@@ -23,7 +23,6 @@ function App() {
           <section className="outer-container">
               <div className="inner-container">
         <div className="content">
-
           <Routes>
             <Route path="/" element={<Home/>}/>
             {/*<Route path="/products" element= {isAuth===true ? <Products/> : <Navigate to="/"/> }/>*/}
