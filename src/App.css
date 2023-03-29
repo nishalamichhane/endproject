@@ -51,7 +51,7 @@ button {
   border: none;
   /*color: white;*/
   padding: 8px 16px;
-  background-color: #f5ab00;
+  background-color: var(--dark-blue);
   color: white;
   font-weight: bold;
 }
@@ -118,7 +118,7 @@ section  {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: lightyellow;
+  background-color: var(--very-pale-blue);
   text-align: center;
   border-radius: 4px;
   flex-basis: 280px;
