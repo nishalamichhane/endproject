@@ -1,5 +1,5 @@
 .registerbtn {
-    background-color: #f5ab00;
+    background-color: var(--dark-blue);
     color: white;
     padding: 16px 20px;
     margin: 8px 0;
