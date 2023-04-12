@@ -16,7 +16,7 @@ const SearchResults = () => {
     const [error, setError] = useState(false);
     const [counter, setCounter] = useState(0);
     const [query, setQuery] = useState([]);
-    const {isAuth, login, logout,email, user} = useContext( AuthContext );
+    const {isAuth} = useContext( AuthContext );
     const {addToCart, cartItems} = useContext(ShopContext);
     function adjustCounter(num){
         setCounter(counter=>counter+num);
