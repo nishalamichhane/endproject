@@ -1,6 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
 import "../App.css";
 import {Link, NavLink} from "react-router-dom";
+import {AuthContext} from "../context/AuthContext";
 import axios from "axios";
 import Header from "../components/navbar/NavBar";
 import Footer from "../components/footer/Footer";
@@ -15,6 +16,7 @@ const SearchResults = () => {
     const [error, setError] = useState(false);
     const [counter, setCounter] = useState(0);
     const [query, setQuery] = useState([]);
+    const {isAuth, login, logout,email, user} = useContext( AuthContext );
     const {addToCart, cartItems} = useContext(ShopContext);
     function adjustCounter(num){
         setCounter(counter=>counter+num);
@@ -80,8 +82,13 @@ const SearchResults = () => {
                         {/*<p>{counter}</p>*/}
                         {/*<Button clickHandler = { () => adjustCounter(+1) }> Add to a cart </Button>*/}
                         {/*<Button clickHandler = { () => adjustCounter(-1) }> Remove from cart </Button>*/}
-                        <button type = "button" onClick={()=> addToCart(product.id)}>Add to Cart {cartItems.filter(x => x===product.id).length> 0 &&
-                            <> ({cartItems.filter(x => x===product.id).length})</>}</button>
+                        {(isAuth === true) ?
+                            <button type="button" onClick={() => addToCart(product.id)}>Add to
+                                Cart {cartItems.filter(x => x === product.id).length > 0 &&
+                                    <> ({cartItems.filter(x => x === product.id).length})</>}</button>
+                            :
+                            <div></div>
+                        }
                     </article>)
                 })}
                 {loading && <span>Loading......</span>}

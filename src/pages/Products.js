@@ -1,4 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
+import {AuthContext} from "../context/AuthContext";
 import {ShopContext} from "../context/ShopContext";
 import "../App.css";
 import {useNavigate, Link, NavLink} from "react-router-dom";
@@ -18,6 +19,7 @@ const Products = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
     const [counter, setCounter] = useState(0);
+    const {isAuth, login, logout,email, user} = useContext( AuthContext );
     useEffect(()=>{
         async function fetchProductData(){
             setLoading(true);
@@ -49,8 +51,12 @@ const Products = () => {
                         <h6>Titel:<Link to={`/productdetails/${product.id}`}>{product.title} </Link></h6>
                         <strong>Prijs: €{product.price}</strong><br/>
                         {/*<button type="button" onClick={()=>navigate('/winkelwagen')}>Add to Cart</button>*/}
-                        <button type = "button" onClick={()=> addToCart(product.id)}>Add to Cart {cartItems.filter(x => x===product.id).length> 0 &&
+                        {(isAuth===true) ?
+                            <button type = "button" onClick={()=> addToCart(product.id)}>Add to Cart {cartItems.filter(x => x===product.id).length> 0 &&
                             <> ({cartItems.filter(x => x===product.id).length})</>}</button>
+                            :
+                            <div></div>
+                        }
                     </article>)
                 })}
                 {loading && <span>Loading......</span>}
