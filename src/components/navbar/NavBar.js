@@ -64,12 +64,6 @@ function NavBar() {
                     </Button>
                     <Button
                         type="button"
-                        clickHandler={() => navigate('/profile')}
-                    >
-                        Profiel
-                    </Button>
-                    <Button
-                        type="button"
                         clickHandler={() => navigate('/products')}
                     >
                         Producten
@@ -79,12 +73,6 @@ function NavBar() {
                         clickHandler={() => navigate('/searchresults')}
                     >
                         Zoeken met Categorie
-                    </Button>
-                    <Button
-                        type="button"
-                        clickHandler={() => navigate('/winkelwagen')}
-                    >
-                        Winkelwagen
                     </Button>
                 </div>}
         </nav>
