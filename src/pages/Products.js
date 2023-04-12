@@ -19,7 +19,7 @@ const Products = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
     const [counter, setCounter] = useState(0);
-    const {isAuth, login, logout,email, user} = useContext( AuthContext );
+    const {isAuth} = useContext( AuthContext );
     useEffect(()=>{
         async function fetchProductData(){
             setLoading(true);

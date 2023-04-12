@@ -1,11 +1,13 @@
 import React, {useContext, useEffect, useState} from 'react';
 import Products from "./Products";
+import { AuthContext } from '../context/AuthContext';
 import {ShopContext} from "../context/ShopContext";
 import CartItem from "./cart-item";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
  export const WinkelWagen = (props) => {
+     const {isAuth} = useContext( AuthContext );
     const {cartItems} = useContext(ShopContext);
      const navigate = useNavigate();
      console.log("cart items:" +cartItems);
@@ -13,6 +15,7 @@ import { useNavigate } from "react-router-dom";
      const [product, setProduct] = useState([]);
      const [loading, setLoading] = useState(false);
      const [error, setError] = useState(false);
+
      useEffect(()=>{
          async function fetchProductData(){
              setLoading(true);
@@ -36,6 +39,7 @@ import { useNavigate } from "react-router-dom";
         //     <p>{category}</p>
         //
         // </div>
+        (isAuth===true) ?
         <div className="cart">
             <div>
                 <h1>Your Cart Items</h1>
@@ -49,7 +53,8 @@ import { useNavigate } from "react-router-dom";
                 })}
             </div>
         </div>
-
+            :
+             navigate('/')
     )
 }
 export default WinkelWagen;
