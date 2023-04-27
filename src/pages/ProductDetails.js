@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {useNavigate, Link, useParams} from "react-router-dom";
-import ErrorMessage from "../components/errorMessage/ErrorMessage";
 import axios from "axios";
-
-import products from "./Products";
-
 const ProductDetails = () => {
     const navigate = useNavigate();
     const [ loading, setLoading ] = useState( false )
@@ -22,7 +18,6 @@ const ProductDetails = () => {
                     signal: controller.signal,
                 } );
                 setData( response.data );
-                //console.log("data is: "+ response.data)
             } catch ( e ) {
                 setError( true )
                 if(axios.isCancel(e)){
@@ -52,7 +47,6 @@ const ProductDetails = () => {
                     </div>
                 </div>
             { loading && <p>Loading...</p> }
-
         </>
     );
 };

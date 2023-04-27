@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import computer from '../assets/computer-1419134_960_720.png';
 import Ljacket from '../assets/gents-jacket.png';
 import Mjacket from '../assets/jas.png';
@@ -20,7 +19,6 @@ function Home() {
                <img src ={Mjacket} alt="" width ={300} height={300}></img>
                <img src ={ring} alt="" width ={300} height={300}></img>
             </div>
-
         </>
     );
 }

@@ -27,21 +27,10 @@ function AuthContextProvider ( { children }) {
         }
     }, []);
     function login(JWT){
-        // setIsAuth(true);
-        // console.log('Gebruiker is ingelogd');
-        // navigate('/profile')
-        // set de token in de Local Storage
         localStorage.setItem('token', JWT);
-        // decode the token so that we have the user's ID and can retrieve data for the context
-        // pass the ID, token and redirect link to the fetchUserData function (listed below)
         fetchUserData( JWT, '/profile');
-        // link de gebruiker door naar de profielpagina
-        // history.push('/profile');
     }
     function logout(){
-        // setIsAuth(false);
-        // console.log('Gebruiker is uitgelogd');
-        // navigate('/');
         localStorage.clear();
         toggleIsAuth({
             isAuth: false,

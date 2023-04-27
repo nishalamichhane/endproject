@@ -4,14 +4,7 @@ import {ShopContext} from "../context/ShopContext";
 import "../App.css";
 import {useNavigate, Link, NavLink} from "react-router-dom";
 import axios from "axios";
-//import { ShoppingCart } from "phosphor-react";
-
-import Header from "../components/navbar/NavBar";
-import Footer from "../components/footer/Footer";
-//import logo from "../../assets/logo.png";
 import ErrorMessage from "../components/errorMessage/ErrorMessage";
-import SearchBar from "../components/searchbar/SearchBar";
-import Button from "../components/button/Button";
 const Products = () => {
     const navigate = new useNavigate();
     const {addToCart, cartItems} = useContext(ShopContext);

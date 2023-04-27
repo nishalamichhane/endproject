@@ -5,7 +5,6 @@ import axios from "axios";
 import {useForm} from "react-hook-form";
 import ErrorMessage from "../components/errorMessage/ErrorMessage";
 import Button from "../components/button/Button";
-
 function SignUp() {
     //state for the form
     const { register, handleSubmit, formState: { errors } } = useForm();
