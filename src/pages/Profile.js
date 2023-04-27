@@ -24,7 +24,6 @@ function Profile() {
         }
         fetchProfileData();
     }, [])
-    //console.log("email is:"+email);
     return (
         <>
             <h1>Profielpagina</h1>

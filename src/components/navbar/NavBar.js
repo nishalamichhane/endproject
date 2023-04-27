@@ -1,7 +1,6 @@
 import React, {useContext, useState} from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import {AuthContext} from "../../context/AuthContext";
-import SearchBar from "../searchbar/SearchBar";
 import './NavBar.css';
 import Button from "../button/Button";
 function NavBar() {

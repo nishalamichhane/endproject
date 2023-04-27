@@ -3,12 +3,6 @@ import "../App.css";
 import {Link, NavLink} from "react-router-dom";
 import {AuthContext} from "../context/AuthContext";
 import axios from "axios";
-import Header from "../components/navbar/NavBar";
-import Footer from "../components/footer/Footer";
-//import logo from "../../assets/logo.png";
-import ErrorMessage from "../components/errorMessage/ErrorMessage";
-import SearchBar from "../components/searchbar/SearchBar";
-import Button from "../components/button/Button";
 import {ShopContext} from "../context/ShopContext";
 const SearchResults = () => {
     const [product, setProduct] = useState([])
