@@ -47,6 +47,7 @@ Dit applicatie heeft nu seven paginas:
 5. _Producten Pagina_
 6. _Productdetails Pagina_
 7. _ZoekenmetCategorie Pagina_
+8. _WinkelWagen Pagina_
 
 ### StappenPlan
 Deze applicatie is zo simpele applicatie om te draaien. 
@@ -66,6 +67,8 @@ Deze applicatie is zo simpele applicatie om te draaien.
 ** *Op de pagina Productenlijst, kunnen we de titel ook zien. We moeten op de titel klikken om naar de detailpagina te gaan*
 
 ** *Producten kunnen op categorie worden gezocht. Daarvoor moeten we op de link 'ZoekenmetCategorie' klikken*
+
+** *Ingelogd users kunnen producten op de winkelwagen toevoegen, bewerken en verwijderen*
 
 ## 5. Componenten en AuthContext
 **Navbar en footer**  hebben gemaakt, die in het systeem kunnen worden hergebruikt. Conext (Authcontext) is ook gebruikt in het systeem voor Authenticatie.
