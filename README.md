@@ -71,7 +71,7 @@ Deze applicatie is zo simpele applicatie om te draaien.
 ** *Ingelogd users kunnen producten op de winkelwagen toevoegen, bewerken en verwijderen*
 
 ## 5. Componenten en AuthContext
-**Navbar en footer**  hebben gemaakt, die in het systeem kunnen worden hergebruikt. Conext (Authcontext) is ook gebruikt in het systeem voor Authenticatie.
+**NavBar, Footer, ErrorMessage, Button** componenten  hebben gemaakt, die in het systeem kunnen worden hergebruikt. Conext (Authcontext) is ook gebruikt in het systeem voor Authenticatie en ShopContext is ook gemaakt.
 
 
 
